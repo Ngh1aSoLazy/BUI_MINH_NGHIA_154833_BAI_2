@@ -79,7 +79,7 @@ void FIND_PAIR(int arr[], int n)
 			{
 				if (sum == arr[k])
 				{
-					cout << "Pair is: [" << i << ", " << j << "]";
+					cout << "Pair is: [" << i << ", " << j << "]" << endl;
 				}
 			}
 		}
@@ -91,31 +91,42 @@ int main()
 	// Nhập giới hạn n
 	int n;
 	cin >> n;
+
 	// Cấp phát mảng động để lưu giá trị của các số nguyên tố và số nửa nguyên tố
 	int* arr = new int[a];
 	int* arr2 = new int[b];
+
 	// Hàm tạo mảng các số nguyên tố < n
 	LIST(arr, n); 
+
 	// In ra màn hình các số nguyên tố trong mảng
+	cout << "Prime numbers: {";
 	for (int i = 0; i < a; i++)
 	{
-		cout << " " << arr[i];
+		cout << ", " << arr[i];
 	}
-	cout << endl;
+	cout << "}" << endl;
+
 	// Hàm tạo mảng các số nửa nguyên tố < n
 	LIST2(arr, arr2, a, n);
+
 	// In ra màn hình các số nửa nguyên tố trong mảng
+	cout << "Semiprime numbers: {";
 	for (int i = 0; i < b; i++)
 	{
 		cout << " " << arr2[i];
 	}
-	cout << endl;
+	cout << "}" << endl;
+
 	// Khai báo biến lưu giá trị cần tìm
+	cout << "Find? ";
 	int num;
 	cin >> num;
+
 	// Hàm xác định có tồn tại hay không số nửa nguyên tố nhập vào
 	if (FIND_BLUM(arr2, num)) cout << "Found!" << endl;
 	else cout << "Not found!" << endl;
+
 	// Hàm tìm cặp số nửa nguyên tố có tổng cũng là số nửa nguyên tố < n
 	FIND_PAIR(arr2, b);
 
